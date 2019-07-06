@@ -1,0 +1,77 @@
+<div class="table-container overrides">
+  <ul class="nav nav-tabs tab-container">
+    <li class="nav-item" *ngFor="let tab of tabList">
+      <a class="nav-link tab__font" [ngClass]="{'active': currTab === tab.key}"
+        (click)="selectTab(tab)">{{tab.label}}</a>
+    </li>
+    <div class="filterbutton">
+      <button type="button" [routerLink]="['/', 'advFilter']" class="btn btn-info"
+      [ngStyle]="{'height':'90%','width':'120px','margin-top':'-3.5%'}">Filter</button>
+    </div>
+    <li class="global-search">
+      <input type="text" class="form-control" (input)="dt.filterGlobal($event.target.value, 'contains')"
+        placeholder="Global search" [ngStyle]="{'height':'70%','margin-top':'-2.0%'}"/>
+    </li>
+  </ul>
+  <div class="table-section">
+    <!-- <p-table #dt [columns]="columns" [value]="tableData" [paginator]="true" [rows]="noOfRowToDisplay"
+      [responsive]="true" [rowsPerPageOptions]="[10,20,30]" autoLayout="true" [style]="{height:'500px',overflow:'auto'}"
+      [loading]="loading"> -->
+
+      <p-table #dt [columns]="columns" [value]="tableData" [responsive]="true"  autoLayout="true" [style]="{height:'500px',overflow:'auto'}"
+      [loading]="loading">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns" [style]='col.align' [style.width]="col.width">
+            {{col.header}}
+          </th>
+          <th style="width: auto">
+            Operation
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+          <td class="tdFormat" *ngFor="let col of columns; let idx=index" [ngClass]="col.className" [style]='col.align'
+            [style.width]="col.width" [pTooltip]="col.hasTooltip && rowData[col.field]" tooltipPosition="top">
+            <span *ngIf="idx == 0" pTooltip="Click for Payment details">
+              <a (click)="openDialogBox(rowData)"
+                [ngStyle]="{'color':'blue','cursor':'pointer'}">{{rowData[col.field]}}</a>
+            </span>
+            <span *ngIf="idx != 0">
+              {{rowData[col.field]}}
+            </span>
+
+          </td>
+          <td>
+            <a style="color:gray" (click)="openDetailDialogBox(rowData)">
+              <i class="fa fa-eye fa-lg" aria-hidden="true"  pTooltip="Detail Information"></i>&nbsp;&nbsp; |&nbsp;&nbsp;
+            </a>
+
+
+            <a style="color:gray;" (click)="openDeleteDialogBox(rowData)">
+              <i *ngIf="!rowData.Comments" class="fa fa-comment-o fa-lg" aria-hidden="true" pTooltip="Click for adding Comments"></i>
+              <i *ngIf="rowData.Comments" class="fa fa-comment-o fa-lg" style="color:red;" aria-hidden="true" pTooltip="Click for adding Comments"></i>
+              
+            </a>
+
+            <!-- //  <p-tableCheckbox [value]="rowData"></p-tableCheckbox> -->
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+          <td [attr.colspan]="columns.length+1">
+            <b>No records found...</b>
+          </td>
+
+        </tr>
+      </ng-template>
+    </p-table>
+    <p-paginator [rows]="10" totalRecords="{{totalRecordsCount}}" (onPageChange)="paginate($event)"></p-paginator>
+  </div>
+</div>
+<app-modal [show]="openDialog" [modalFileData]="selectedItemRow" (displayChange)="onDialogClose($event)"></app-modal>
+
+<app-confirmModal [show]="openDeleteDialog" [confirmModalData]="selectedItemRow" (displayChange)="onDialogDeleteClose($event)">
+</app-confirmModal>

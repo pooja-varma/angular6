@@ -1,0 +1,7 @@
+{
+    "/api": {
+      "target": "http://spocdev.xoriant.com:7402/citiCon",
+      "secure": false
+    }
+  }
+  

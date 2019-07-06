@@ -1,0 +1,56 @@
+[  
+    {  
+        "payment_id":33776,
+        "invoice_num":"548-002",
+        "invoice_amount":"23.6",
+        "invoice_currency_code":"RUB",
+        "invoice_date":"15-03-19",
+        "invoice_id":222951,
+        "created_by":0,
+        "creation_date":"15-03-19",
+        "last_update_date":"15-03-19",
+        "last_updated_by":0,
+        "org_id":5379,
+        "payment_method_code":null,
+        "request_id":null,
+        "supplier_name":null,
+        "supplier_site_name":null
+        
+    },
+    {  
+        "payment_id":33776,
+        "invoice_num":"548-002",
+        "invoice_amount":"23.6",
+        "invoice_currency_code":"RUB",
+        "invoice_date":"15-03-19",
+        "invoice_id":222951,
+        "created_by":0,
+        "creation_date":"15-03-19",
+        "last_update_date":"15-03-19",
+        "last_updated_by":0,
+        "org_id":5379,
+        "payment_method_code":null,
+        "request_id":null,
+        "supplier_name":null,
+        "supplier_site_name":null
+        
+    },
+    {  
+        "payment_id":33776,
+        "invoice_num":"548-002",
+        "invoice_amount":"23.6",
+        "invoice_currency_code":"RUB",
+        "invoice_date":"15-03-19",
+        "invoice_id":222951,
+        "created_by":0,
+        "creation_date":"15-03-19",
+        "last_update_date":"15-03-19",
+        "last_updated_by":0,
+        "org_id":5379,
+        "payment_method_code":null,
+        "request_id":null,
+        "supplier_name":null,
+        "supplier_site_name":null
+        
+    }
+ ]

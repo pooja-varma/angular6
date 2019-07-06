@@ -1,0 +1,58 @@
+.command-palet-container {
+  background: #fff;
+  margin-top: 32px;
+
+  .command-palet,
+  .title {
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px 0;
+  }
+
+  
+  .title {
+    width: 300px;
+    text-align: left;
+    margin-left: 50px;
+    border-right: 1px solid #dee2e6;
+    font-weight: 700;
+  }
+
+  .titleBC {
+    width: 300px;
+    text-align: left;
+    margin-left: 50px;
+    font-weight: 500;
+  }
+  .command-palet {
+    div {
+          display: inline-block;
+    }
+  }
+
+  .box {
+    width: 12px;
+    height: 12px;
+    margin: 0 30px;
+  }
+
+  .inprogress {
+    background: #000;
+  }
+
+  .success {
+    background: blue;
+  }
+
+  .rejected {
+    background: red;
+  }
+
+  .extra-status {
+    background: orange;
+  }
+
+  .other {
+    background: green;
+  }
+}

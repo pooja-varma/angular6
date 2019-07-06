@@ -1,0 +1,13 @@
+<div class="menu-container">
+  <i class="fa fa-bars fa-3 menu-icon" aria-hidden="true" (click)="onMenuToggle()"></i>
+  <div class="menu-toggle" *ngIf="isMenuOpen">
+    <i class="fa fa-chevron-left fa-2" aria-hidden="true" (click)="onMenuToggle()"></i>
+  </div>
+  <div class="menu-list">
+    <div class="menu-item" [routerLinkActive]="[menu.routerLinkActive]" *ngFor="let menu of menuList">
+      <a [routerLink]="[menu.routerLink]" [ngStyle]="{'color':'black','text-decoration': 'none'}" (click)="listClick($event, menu)"><i class="fa {{menu.icon}}" aria-hidden="true"></i></a>
+      <span *ngIf="isMenuOpen">
+          <a [ngStyle]="{'color':'black','text-decoration': 'none'}" [routerLink]="[menu.routerLink]" (click)="listClick($event, menu)">{{menu.label}}</a></span>
+    </div>
+  </div>
+</div>

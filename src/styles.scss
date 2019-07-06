@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/scss/bootstrap.scss";
+
+body {
+    background: #c9d1db;
+}
+.table-section .ui-table {
+    height: auto !important;
+   }

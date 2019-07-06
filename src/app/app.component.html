@@ -1,0 +1,13 @@
+<div class="app-wrapper container-fluid">
+  <app-header></app-header>
+  <app-command-palet></app-command-palet>
+  <div class="body-section">
+    <app-menu class="menu" (menuToggle)="onMenuToggle($event)" [ngStyle]="{'width': menuStatus ? '20%' : '60px'}"></app-menu>
+    <!-- <app-table class="table-section" [ngStyle]="{'width': menuStatus ? '78%' : '96%'}"></app-table> -->
+
+    <div class="routing-section" [ngStyle]="{'width': menuStatus ? '78%' : '96%'}">
+      <router-outlet></router-outlet>
+      <ng4-loading-spinner  [threshold]="500"></ng4-loading-spinner>
+    </div>
+  </div>
+</div>

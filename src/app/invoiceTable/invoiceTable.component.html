@@ -1,0 +1,66 @@
+<div class="table-container overrides">
+  <ul class="nav nav-tabs tab-container">
+    <li class="nav-item" *ngFor="let tab of tabList">
+      <a class="nav-link tab__font" [ngClass]="{'active': currTab === tab.key}"
+        (click)="selectTab(tab)">{{tab.label}}</a>
+    </li>
+    <div class="filterbutton">
+      <button type="button" [routerLink]="['/', 'advFilter']" class="btn btn-info"
+        [ngStyle]="{'height': '90%','width': '120px'}">Filter</button>
+    </div>
+    <li class="global-search">
+      <input type="text" class="form-control" (input)="dt.filterGlobal($event.target.value, 'contains')"
+        placeholder="Global search" />
+    </li>
+  </ul>
+  <div class="table-section"> 
+        <p-table #dt [columns]="columns" [value]="tableData" [paginator]="true" [rows]="noOfRowToDisplay"
+      [responsive]="true" [rowsPerPageOptions]="[10,20,30]" autoLayout="true" [style]="{height:'500px',overflow:'auto'}" [loading]="loading">
+      
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns" [style.width]="col.width" class="text-center">
+            {{col.header}}
+          </th>
+          <th style="width: auto">
+              Operation
+            </th>
+        </tr>
+        
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+          <td class="tdFormat" *ngFor="let col of columns; let idx=index" [ngClass]="col.className"
+            [style.width]="col.width" [pTooltip]="col.hasTooltip && rowData[col.field]" tooltipPosition="top"
+            [ngStyle]="{'text-align': 'center'}">
+            <span *ngIf="idx == 0">
+              <a 
+                [ngStyle]="{'color':'black'}">{{rowData[col.field]}}</a>
+            </span>
+            <span *ngIf="idx != 0">
+              {{rowData[col.field]}}
+            </span>
+
+          </td>
+          <td>
+              <a style="color:gray" (click)="openDialogBox(rowData)">
+                <i class="fa fa-eye fa-lg" aria-hidden="true" pTooltip="Click for Invoice details"></i>
+              </a>
+  
+              
+  
+              <!-- //  <p-tableCheckbox [value]="rowData"></p-tableCheckbox> -->
+            </td>          
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+          <tr>
+              <td [attr.colspan]="columns.length+1">
+                  <b>No records found...</b>
+              </td>
+          </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+<invoice-modal [show]="openDialog" [modalData]="selectedItemRow" (displayChange)="onDialogClose($event)"></invoice-modal>

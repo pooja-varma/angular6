@@ -1,0 +1,85 @@
+.rowID{
+    padding:1px;
+} 
+
+.alignRgt
+{
+    text-align: left;
+    margin-left: 20%;
+}
+
+@import "../styles/constants.scss";
+
+.tab__font{
+  font-weight: 700;
+}
+.ddStyle{
+
+  
+  width: 51%;
+  height: 160%;
+}
+
+.dropdown{
+  padding-right: 2em;
+  cursor: pointer;
+  font-weight: normal;
+  display: block;
+    border: none;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: normal;
+    width: 100%;
+    padding-right: 2.5em;
+
+}
+.table-container {
+  height: $section-height;
+  background: #fff;
+
+  .tab-container {
+    padding: 10px 0 0 40px;
+    position: relative;
+  }
+
+  .table-section {
+    margin: 15px;
+  }
+
+
+  .fieldFrame {
+    margin: 50%;
+  }
+
+
+  .global-search {
+    position: absolute;
+    right: 18px;
+  }
+
+  
+  #buttonID {
+    position: absolute;
+    right: -150px;
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+/* -----------*/
+  .ui-table-tbody tr td {
+    font-size: 12px;
+  }
+
+  .ui-table-thead th {
+    font-size: 13px;
+  }
+
+  
+  .unwrap-content {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 500px;
+  }
+
+  
+}

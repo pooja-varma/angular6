@@ -1,0 +1,23 @@
+.body-section {
+  margin-top: 15px;
+}
+
+.menu,
+.routing-section {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.menu {
+  max-width: 20%;
+  margin-right: 20px;
+}
+
+.routing-section {
+  display: inline-block;
+  max-width: 94%
+}
+
+.app-wrapper {
+  min-width: 1400px;
+}

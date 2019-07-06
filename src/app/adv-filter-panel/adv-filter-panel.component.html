@@ -1,0 +1,172 @@
+<div class="table-container">
+  <ul class="nav nav-tabs ">
+  </ul>
+  <div class="table-section">
+    <p-tabView>
+      <p-tabPanel header="File Acknowledgement">
+        <p-card header="Advanced Filter">
+          <div class="container">
+            <form (ngSubmit)="advFilterFile()" #filterForm="ngForm">
+              <div class="row rowID" justify-content-end>
+                <div class="col alignRgt"><span style="color:red;">*</span>From Date&nbsp;&nbsp;&nbsp;<span style="color:LightGray;">(mm/dd/YYYY)</span> </div>
+                <div class="col">
+                  <p-calendar [(ngModel)]="model.fromDate" [showIcon]="true" [ngModelOptions]="{standalone: true}">
+                  </p-calendar>
+                   <p-message  style ="margin-left: 10%;" *ngIf="!model.fromDate" severity="error" text="Field is required"></p-message>
+                </div>
+              </div>
+              <div class="row rowID">
+                <div class="col alignRgt"><span style="color:red;">*</span>To Date&nbsp;&nbsp;&nbsp;<span style="color:LightGray;">(mm/dd/YYYY)</span> </div>
+                <div class="col">
+                  <p-calendar [(ngModel)]="model.toDate" [showIcon]="true" [ngModelOptions]="{standalone: true}">
+                  </p-calendar>
+                  <p-message  style ="margin-left: 10%;" *ngIf="!model.toDate" severity="error" text="Field is required"></p-message>
+                </div>
+              </div>
+              <div class="row rowID">
+                <div class="col alignRgt"><span>Batch ID#</span> </div>
+                <div class="col"> <input id="float-input" type="text" size="24" [(ngModel)]="model.identification"
+                    [ngModelOptions]="{standalone: true}" pInputText></div>
+                <!-- <div class="col-xs-2">To</div>
+                    <div class="col"> <input id="float-input" type="text" size="30" pInputText> </div> -->
+              </div>
+              <div class="row rowID">
+                <div class="col alignRgt"><span>Status</span> </div>
+                <!-- <div class="col"> <input id="float-input" type="text" size="30" [(ngModel)]="model.pmtGpSts"
+                    [ngModelOptions]="{standalone: true}" pInputText> </div> -->
+
+
+                <div class="col">
+                  <p-dropdown [options]="statuses" [(ngModel)]="model.selectedStatus"
+                    [ngModelOptions]="{standalone: true}" [style]="{'width':'217px'}"></p-dropdown>
+                </div>
+                <!-- <div class="col-xs-2">To</div>
+                    <div class="col"> <input id="float-input" type="text" size="30" pInputText> </div> -->
+              </div>
+              <div class="row rowID">
+                <div class="col alignRgt"><span style="color:red;">*</span><span>Org Name </span> </div>
+                <!-- <div class="col"> <input id="float-input" type="text" size="24" [(ngModel)]="model.orgName"
+                    [ngModelOptions]="{standalone: true}" pInputText></div> -->
+                    <div class="col">
+                      <p-dropdown [options]="orgname" [(ngModel)]="model.selectedOrgname"
+                      [ngModelOptions]="{standalone: true}" [style]="{'width':'217px'}" placeholder="Select OrgName"></p-dropdown>
+                      <p-message  style ="margin-left: 10%;" *ngIf="!model.selectedOrgname" severity="error" text="Field is required"></p-message>
+                    </div>
+              </div>
+              <div class="row">
+                <div class="col alignRgt"> <button  [disabled]="!model.fromDate || !model.toDate"  class="btn btn-primary" type="submit">Filter</button></div>
+              </div>
+            </form>
+          </div>
+        </p-card>
+      </p-tabPanel>
+      <p-tabPanel header="Payment Status">
+        <p-card header="Advanced Filter">
+          <div class="container">
+            <form (ngSubmit)="advFilter()" #filterForm="ngForm">
+              <div class="row rowID" justify-content-end>
+                <div class="col alignRgt"><span style="color:red;">*</span>From Date &nbsp;&nbsp;&nbsp;<span style="color:LightGray;">(mm/dd/YYYY)</span> </div>
+                <div class="col">
+                  <p-calendar [(ngModel)]="model.pmtfromDate" [showIcon]="true" [ngModelOptions]="{standalone: true}">
+                  </p-calendar>
+                  <p-message  style ="margin-left: 10%;" *ngIf="!model.pmtfromDate" severity="error" text="Field is required"></p-message>
+                </div>
+              </div>
+              <div class="row rowID">
+                <div class="col alignRgt"><span style="color:red;">*</span><span>To Date &nbsp;&nbsp;&nbsp;<span style="color:LightGray;">(mm/dd/YYYY)</span> </span> </div>
+                <div class="col">
+                  <p-calendar [(ngModel)]="model.pmttoDate" [showIcon]="true" [ngModelOptions]="{standalone: true}">
+                  </p-calendar>
+                  <p-message  style ="margin-left: 10%;" *ngIf="!model.pmttoDate" severity="error" text="Field is required"></p-message>
+                </div>
+              </div>
+              <div class="row rowID">
+                <div class="col alignRgt"><span>PaymentNo#</span> </div>
+                <div class="col"> <input id="float-input" type="text" size="24" [(ngModel)]="model.identification"
+                    [ngModelOptions]="{standalone: true}" pInputText> </div>
+                <!-- <div class="col-xs-2">To</div>
+                          <div class="col"> <input id="float-input" type="text" size="30" pInputText> </div> -->
+              </div>
+              <div class="row rowID">
+                <div class="col alignRgt"><span>Ack. Status</span> </div>
+                <!-- <div class="col"> <input id="float-input" type="text" size="30" [(ngModel)]="model.pmtGpSts"
+                            [ngModelOptions]="{standalone: true}" pInputText> </div> -->
+
+
+                <div class="col">
+                   <p-dropdown [options]="pmtstatuses" [(ngModel)]="model.pmtselectedStatus"
+                    [ngModelOptions]="{standalone: true}" [style]="{'width':'217px'}"></p-dropdown> 
+                </div>
+                <!-- <div class="col-xs-2">To</div>
+                            <div class="col"> <input id="float-input" type="text" size="30" pInputText> </div> -->
+              </div>
+
+              <div class="row rowID">
+                <div class="col alignRgt"><span style="color:red;">*</span><span>Org Name</span> </div>
+                <!-- <div class="col"> <input id="float-input" type="text" size="24" [(ngModel)]="model.orgName"
+                    [ngModelOptions]="{standalone: true}" pInputText></div> -->
+                    <div class="col">
+                         <p-dropdown [options]="orgname" [(ngModel)]="model.pmtselectedOrgname"
+                         [ngModelOptions]="{standalone: true}" [style]="{'width':'217px'}" placeholder="Select OrgName"></p-dropdown>                   
+                         <p-message  style ="margin-left: 10%;" *ngIf="!model.pmtselectedOrgname" severity="error" text="Field is required"></p-message>
+                    </div>
+              </div>
+              <!-- <div class="row rowID">
+                <div class="col alignRgt"><span>House Bank</span> </div>
+                <div class="col"> <input id="float-input" type="text" size="30" [(ngModel)]="model.houseBk"
+                    [ngModelOptions]="{standalone: true}" pInputText></div>
+                 <div class="col-xs-2">To</div>
+                        <div class="col"> <input id="float-input" type="text" size="30" pInputText> </div> -->
+              <!--</div>
+              <div class="row rowID">
+                <div class="col alignRgt"><span>Account ID</span> </div>
+                <div class="col"> <input id="float-input" type="text" size="30" [(ngModel)]="model.accId"
+                    [ngModelOptions]="{standalone: true}" pInputText> </div>
+                 <div class="col-xs-2">To</div>
+                        <div class="col"> <input id="float-input" type="text" size="30" pInputText> </div> 
+              </div> -->
+              <!--<div class="row rowID">
+                <div class="col alignRgt"><span>Paying Company Code</span> </div>
+                <div class="col"> <input id="float-input" type="text" size="30" [(ngModel)]="model.payingCmpCode"
+                    [ngModelOptions]="{standalone: true}" pInputText> </div>
+                 <div class="col-xs-2">To</div>
+                        <div class="col"> <input id="float-input" type="text" size="30" pInputText> </div> -->
+              <!--</div>-->
+              <div class="row rowID">
+                <div class="col alignRgt"><span>Supplier Name</span> </div>
+                <div class="col"> <input id="float-input" type="text" size="24" [(ngModel)]="model.sendingCmpCode"
+                    [ngModelOptions]="{standalone: true}" pInputText> </div>
+                <!-- <div class="col-xs-2">To</div>
+                        <div class="col"> <input id="float-input" type="text" size="30" pInputText> </div> -->
+              </div>
+              <!-- <div class="row rowID">
+                        <div class="col alignRgt"><span>Business Partner Reference</span> </div>
+                        <div class="col"> <input id="float-input" type="text" size="30" [(ngModel)]="model.busiPartRef"
+                            [ngModelOptions]="{standalone: true}" pInputText> </div>
+                         <div class="col-xs-2">To</div>
+                        <div class="col"> <input id="float-input" type="text" size="30" pInputText> </div> 
+                      </div> -->
+              <div class="row rowID">
+                <div class="col alignRgt"><span>Payment Method</span> </div>
+                <div class="col"> <input id="float-input" type="text" size="24" [(ngModel)]="model.pmtMethod"
+                    [ngModelOptions]="{standalone: true}" pInputText> </div>
+                <!-- <div class="col-xs-2">To</div>
+                        <div class="col"> <input id="float-input" type="text" size="30" pInputText> </div> -->
+              </div>
+              <!-- <div class="row rowID">
+                        <div class="col alignRgt"><span>Pmt. Meth. Supplement</span> </div>
+                        <div class="col"> <input id="float-input" type="text" size="30" [(ngModel)]="model.pmtMtSupp"
+                            [ngModelOptions]="{standalone: true}" pInputText> </div>
+                        <div class="col-xs-2">To</div>
+                        <div class="col"> <input id="float-input" type="text" size="30" pInputText> </div> 
+                      </div> -->
+              <div class="row">
+                <div class="col alignRgt"> <button [disabled]="!model.pmtfromDate || !model.pmttoDate || !model.pmtselectedOrgname" class="btn btn-primary" type="submit">Filter</button></div>
+              </div>
+            </form>
+          </div>
+        </p-card>
+      </p-tabPanel>
+    </p-tabView>
+  </div>
+</div>

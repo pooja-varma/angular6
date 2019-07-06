@@ -1,0 +1,48 @@
+<p-dialog [(visible)]="show" header="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add Comments" (onShow)="onOpen(confirmModalData)" (onHide)="onClose()"
+  modal="modal" [style]="{'margin-left':'80px', 'margin-right':'80px'}" [responsive]="true">
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enter Comments </div>
+  <!-- <div>{{confirmModalData | json}}</div> -->
+
+  <div class="container">
+      <div class="ui-g">
+    <div class="ui-g-8">
+      <!-- <div class="ui-md-6"> -->
+        <textarea *ngIf="confirmModalData" rows="2" cols="35" pTooltip="Enter your Comments" tooltipPosition="top"
+          [(ngModel)]="commentText"></textarea>
+      <!-- </div> -->
+
+    </div>
+    <div class="ui-g-4 ui-g-nopad">
+      <div class="ui-g-6"><button  [disabled]="!commentText" class="btn-danger"
+        type="submit" (click)="delete(confirmModalData)" pButton icon="pi pi-check" label="Save"></button>
+    </div>
+
+    <div class="ui-g-6"><button type="button" (click)="cancel()" pButton icon="pi pi-times" label="Cancel"></button>
+    </div>
+    </div>
+      </div>
+          
+      <div class="ui-g">
+          <div class="ui-g-8">
+            <!-- <span *ngFor="let cmt of cmtsHistory">{{cmt.created_by}} {{cmt.comments}}</span> -->
+            <div style="overflow:scroll;height:200px;width:560px;overflow:auto">
+    
+              <table  *ngIf="cmtsHistory" class="table table-bordered table-sm">
+                  <tr>
+                      <th>Created By</th>
+                      <th>Comments</th>
+                    </tr>
+                <ng-container *ngFor="let cmt of cmtsHistory">
+                  <tr>
+                    <td>{{cmt.created_by}}</td>
+                    <td>{{cmt.comments}}</td>
+                  </tr>
+                </ng-container>
+              </table>
+            </div>
+          </div>
+        </div>
+    
+    <!-- <p-messages [value]="msgs"></p-messages> -->
+  </div>
+</p-dialog>

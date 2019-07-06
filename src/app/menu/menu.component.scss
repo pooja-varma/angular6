@@ -1,0 +1,40 @@
+@import "../styles/constants.scss";
+
+.active
+{
+  //background: linear-gradient(#C0C0C0, #808080	)
+  background:  #808080	
+}
+
+
+.menu-container {
+  height: $section-height;
+  background: #fff;
+
+  .menu-toggle {
+    float: right;
+    border: 1px solid #a09c9c;
+    padding: 5px 10px;
+    margin: 10px;
+    border-radius: 50%;
+  }
+
+  .menu-icon {
+    margin: 14px 18px;
+    font-size: 26px;
+  }
+
+  .menu-item {
+    padding: 12px 0;
+    border-top: 1px solid #dcd0d0;
+
+    i {
+      padding: 0 20px;
+      font-size: 20px;
+    }
+  }
+
+  .menu-item:last-child {
+    border-bottom: 1px solid #eccaca;
+  }
+}

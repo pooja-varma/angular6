@@ -1,0 +1,151 @@
+<p-dialog [(visible)]="show" header="Payment Message Details" (onHide)="onClose()" modal="modal"
+  [style]="{'margin-left':'80px', 'margin-right':'80px'}" [responsive]="true">
+  <!-- <div>Content</div>   -->
+  <!-- <div>{{modalData | json}}</div>   -->
+
+  <table *ngIf="modalData" class="table table-bordered table-sm">
+    <tr>
+      <th>Payment ID</th>
+      <td>{{modalData.payment_id}}</td>
+    </tr>
+    <tr>
+      <th>Comments</th>
+      <td>{{modalData.comments}}</td>
+    </tr>
+    <tr>
+      <th>Comments Payment ID</th>
+      <td>{{modalData.comm_payment_id}}</td>
+    </tr>
+    <tr>
+      <th>Supplier Id</th>
+      <td>{{modalData.supplier_id}}</td>
+    </tr>
+    <tr>
+      <th>Supplier Name</th>
+      <td>{{modalData.supplier_name}}</td>
+    </tr>
+    <tr>
+      <th>Supplier Site Id</th>
+      <td>{{modalData.supplier_site_id}}</td>
+    </tr>
+    <tr>
+      <th>Supplier Site Name</th>
+      <td>{{modalData.supplier_site_name}}</td>
+    </tr>
+    <tr>
+      <th>Payment Method </th>
+      <td>{{modalData.payment_method_code}}</td>
+    </tr>
+    <tr>
+      <th>Payment Status</th>
+      <td>{{modalData.payment_status}}</td>
+    </tr>
+    <tr>
+      <th>Already Exists</th>
+      <td>{{modalData.already_exists}}</td>
+    </tr>
+    <tr>
+      <th>Payment Amount</th>
+      <td>{{modalData.payment_amount}}</td>
+    </tr>
+    <tr>
+      <th>Payment Currency Code</th>
+      <td>{{modalData.payment_currency_code}}</td>
+    </tr>
+    <tr>
+      <th>OrgId</th>
+      <td>{{modalData.org_id}}</td>
+    </tr>
+    <tr>
+      <th>Request Id</th>
+      <td>{{modalData.request_id}}</td>
+    </tr>
+    <tr>
+      <th>Payment Date </th>
+      <td>{{modalData.payment_date}}</td>
+    </tr>
+    <tr>
+      <th>Creation Date</th>
+      <td>{{modalData.creation_date}}</td>
+    </tr>
+    <tr>
+      <th>Created By</th>
+      <td>{{modalData.created_by}}</td>
+    </tr>
+    <tr>
+      <th>Last Updated Date</th>
+      <td>{{modalData.last_update_date}}</td>
+    </tr>
+    <tr>
+      <th>Last Updated By</th>
+      <td>{{modalData.last_updated_by}}</td>
+    </tr>
+    <tr>
+      <th>File Status</th>
+      <td>{{modalData.file_status}}</td>
+    </tr>
+    <tr>
+      <th>Ack Payment Id</th>
+      <td>{{modalData.payment_ack_id}}</td>
+    </tr>
+  </table>
+
+
+
+
+
+  <table *ngIf="modalFileData" class="table table-bordered table-sm">
+    <tr>
+      <th>Payment Instruction Id</th>
+      <td>{{modalFileData.payment_instruction_id}}</td>
+    </tr>
+    <tr>
+      <th>Created Date</th>
+      <td>{{modalFileData.createdDate}}</td>
+    </tr>
+    <tr>
+      <th>Status</th>
+      <td>{{modalFileData.status}}</td>
+    </tr>
+    <tr>
+      <th>Payment Count</th>
+      <td>{{modalFileData.noOfTrasn}}</td>
+    </tr>
+    <tr>
+      <th>PIUID</th>
+      <td>{{modalFileData.incomingMsgType}}</td>
+    </tr>
+    <tr>
+      <th>Payment Amount</th>
+      <td>{{modalFileData.orgCntrlSum}}</td>
+    </tr>
+    <tr>
+      <th>Additional Info</th>
+      <td>{{modalFileData.addInfo}}</td>
+    </tr>
+    <tr>
+      <th>Created By</th>
+      <td>{{modalFileData.createdBy}}</td>
+    </tr>
+    <tr>
+      <th>Last Updated By</th>
+      <td>{{modalFileData.modifiedBy}}</td>
+    </tr>
+    <tr>
+      <th>Last Updated Date</th>
+      <td>{{modalFileData.modifiedDt}}</td>
+    </tr>
+   <tr>
+      <th>Comments</th>
+      <td>{{modalFileData.comments}}</td>
+    </tr>
+    <tr>
+      <th>Organization Id</th>
+      <td>{{modalFileData.org_id}}</td>
+    </tr>
+    <tr>
+      <th>Ack. Status</th>
+      <td>{{modalFileData.ackStatus}}</td>
+    </tr>
+  </table>
+</p-dialog>
